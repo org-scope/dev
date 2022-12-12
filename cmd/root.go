@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"dev/cmd/docker"
 	"dev/cmd/vscode"
 	"dev/species"
 	"fmt"
@@ -12,6 +13,7 @@ import (
 func init() {
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(vscode.VscodeCmd)
+	rootCmd.AddCommand(docker.DockerCmd)
 
 }
 
@@ -19,7 +21,7 @@ var rootCmd = &cobra.Command{
 	Use:   "dev",
 	Short: "dev tools for devops",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("dev tools for devops")
+		fmt.Println("dev is powerful tools for devops")
 
 		homeDir, _ := os.UserHomeDir()
 		workspace := path.Join(homeDir, species.Workspace)
