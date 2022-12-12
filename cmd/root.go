@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"dev/cmd/docker"
+	golang "dev/cmd/go"
+	"dev/cmd/kubernetes"
 	"dev/cmd/vscode"
 	"dev/species"
 	"fmt"
@@ -14,6 +16,8 @@ func init() {
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(vscode.VscodeCmd)
 	rootCmd.AddCommand(docker.DockerCmd)
+	rootCmd.AddCommand(golang.GolangCmd)
+	rootCmd.AddCommand(kubernetes.KubernetesCmd)
 
 }
 
@@ -21,7 +25,7 @@ var rootCmd = &cobra.Command{
 	Use:   "dev",
 	Short: "dev tools for devops",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("dev is powerful tools for devops")
+		fmt.Println(`./dev help`)
 
 		homeDir, _ := os.UserHomeDir()
 		workspace := path.Join(homeDir, species.Workspace)
